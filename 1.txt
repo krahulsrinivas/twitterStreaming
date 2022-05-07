@@ -1,0 +1,48 @@
+ERROR:root:Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/clientserver.py", line 475, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=9>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/clientserver.py", line 504, in send_command
+    "Error while sending or receiving", e, proto.ERROR_ON_RECEIVE)
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+ERROR:root:Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/clientserver.py", line 475, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/usr/local/Cellar/python@3.7/3.7.12_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/pyspark.zip/pyspark/context.py", line 292, in signal_handler
+    self.cancelAllJobs()
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/pyspark.zip/pyspark/context.py", line 1195, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1310, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/pyspark.zip/pyspark/sql/utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/protocol.py", line 336, in get_return_value
+    format(target_id, ".", name))
+py4j.protocol.Py4JError: An error occurred while calling o12.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/clientserver.py", line 504, in send_command
+    "Error while sending or receiving", e, proto.ERROR_ON_RECEIVE)
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+Traceback (most recent call last):
+  File "/Users/rahulsrinivas/Desktop/dbtproject/spark.py", line 58, in <module>
+    query.awaitTermination()
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/pyspark.zip/pyspark/sql/streaming.py", line 101, in awaitTermination
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/java_gateway.py", line 1310, in __call__
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/pyspark.zip/pyspark/sql/utils.py", line 111, in deco
+  File "/opt/homebrew/Cellar/apache-spark/3.2.0/libexec/python/lib/py4j-0.10.9.2-src.zip/py4j/protocol.py", line 336, in get_return_value
+py4j.protocol.Py4JError: An error occurred while calling o52.awaitTermination
